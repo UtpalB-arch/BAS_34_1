@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script>
+            function mutation(arr)
+            {
+                let temp1 = [...arr[0]]; 
+                let temp2 = [...arr[1]]; 
+                let resultArray = [];
+                let result = true;                
+                for(let i = 0; i < temp2.length; i++) //looping thro elements from the second array
+                {   let flag1 = 0;
+                    for(let j = 0; j < temp1.length; j++) //looping thro elements from the first array
+                    {
+                        if(temp2[i].toLowerCase() == temp1[j].toLowerCase())
+                        {
+                            flag1 = 1;                           
+                        }                       
+                    }
+                    resultArray.push(flag1); //Array to collect the individual flags
+                }
+                //console.log(resultArray);
+
+                for(let i = 0; i<resultArray.length; i++)
+                {
+                    if(resultArray[i]==0)
+                    {result = false;}                              
+                }
+                return result;                
+            }
+            console.log(mutation(["hello", "yeh"]));
+            console.log(mutation(["zyxwvutsrqponmlkjihgfedcba", "rstu"]));
+            console.log(mutation(["hello", "neo"]));
+            console.log(mutation(["ate", "date"]));
+        </script>
+    </body>
+</html>
